@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>daily-mixer</title>
+
+    <meta name="robots" content="noindex">
+    <meta name="color-scheme" content="dark">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            height: 100dvh;
+            overflow: hidden;
+            align-items: center;
+            justify-content: center;
+        }
+
+        main {
+            text-align: right;
+            background: rgba(0, 0, 0, 0.8);
+            max-width: 100%;
+            padding: 0 1em;
+        }
+
+        main>p {
+            word-wrap: break-word;
+            max-width: 512px;
+        }
+
+        code {
+            background: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <script>
+        const randomHue = Math.floor(Math.random() * 360);
+        document.body.style.background = `linear-gradient(hsl(${randomHue}, 89%, 46%), hsl(${randomHue + 50}, 66%, 62%))`;
+    </script>
+
+    <main>
+        <h1>
+            daily-mixer
+        </h1>
+        <hr>
+        <p id="state">
+        </p>
+        <hr>
+        <p id="code">
+            <a href="https://github.com/heinheinhein/daily-mixer">what is this page for?</a>
+        </p>
+        <hr>
+        <small>&copy;2024</small>
+    </main>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+
+        if (params.has("state")) {
+            document.getElementById("state").innerHTML = 'state:<br><code id="state-code"></code>';
+            document.getElementById("state-code").innerText = params.get("state");
+        }
+
+        if (params.has("state") && params.has("code")) {
+            document.getElementById("code").innerHTML = 'authorization code:<br><code id="authorization-code"></code>';
+            document.getElementById("authorization-code").innerText = params.get("code");
+        }
+
+        if (params.has("state") && params.has("error")) {
+            document.getElementById("code").innerHTML = 'error:<br><code id="error-code"></code>';
+            document.getElementById("error-code").innerText = params.get("error");
+        }
+    </script>
+
+</body>
+
+</html>
