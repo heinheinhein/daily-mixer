@@ -17,6 +17,8 @@
             overflow: hidden;
             align-items: center;
             justify-content: center;
+            font-family: sans-serif;
+            line-height: 1em;
         }
 
         main {
@@ -26,13 +28,20 @@
             padding: 0 1em;
         }
 
-        main>p {
+        main>p,
+        main>h1,
+        main>small {
+            font-weight: 900;
             word-wrap: break-word;
             max-width: 512px;
         }
 
         code {
             background: rgba(0, 0, 0, 0.8);
+        }
+
+        img {
+            vertical-align: text-top;
         }
     </style>
 
@@ -48,6 +57,7 @@
     <main>
         <h1>
             daily-mixer
+            <img src="cover.jpg" alt="daily-mixer" width="46" height="46">
         </h1>
         <hr>
         <p id="state">
