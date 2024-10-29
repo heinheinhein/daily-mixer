@@ -211,7 +211,7 @@ create_output_playlist() {
 	res=$(curl -s -X "POST" "$spotify_api_base/users/$user_id/playlists" \
 		-H "Content-Type: application/json" \
 		-H "Authorization: Bearer $access_token" \
-		-d "{\"name\":\"$name\",\"public\":\"$public\"}")
+		-d "{\"name\": \"$name\",\"public\":$public}")
 
 	declare error
 	declare error_description
